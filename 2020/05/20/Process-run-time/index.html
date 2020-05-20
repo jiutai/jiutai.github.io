@@ -79,14 +79,19 @@
 
 
 
-<meta name="description" content="Find Faith">
-<meta property="og:type" content="website">
-<meta property="og:title" content="第二天">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Linux Process run time (del interrupts)首先, 来看时钟中断, 开启高精度定时系统后, 时钟中断的服务例程指向了 hrtimer_interrupt(), 并且设置为 one-shot() 模式, 之后用高精度定时器模拟时钟中断, 此时,真正的时钟中断服务例程为 tick_sched_timer(), 所以我们首先来先减去程序运行期间的时钟中断的时间. 首先是">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Process_run_time">
+<meta property="og:url" content="http://yoursite.com/2020/05/20/Process-run-time/index.html">
 <meta property="og:site_name" content="第二天">
-<meta property="og:description" content="Find Faith">
+<meta property="og:description" content="Linux Process run time (del interrupts)首先, 来看时钟中断, 开启高精度定时系统后, 时钟中断的服务例程指向了 hrtimer_interrupt(), 并且设置为 one-shot() 模式, 之后用高精度定时器模拟时钟中断, 此时,真正的时钟中断服务例程为 tick_sched_timer(), 所以我们首先来先减去程序运行期间的时钟中断的时间. 首先是">
+<meta property="og:image" content="https://wx4.sinaimg.cn/mw690/006f75xWgy1geyvj3hrejj30ph0d3401.jpg">
+<meta property="og:image" content="https://wx1.sinaimg.cn/mw690/006f75xWgy1geyvn5joklj30qk0hkdi3.jpg">
+<meta property="article:published_time" content="2020-05-20T04:43:43.000Z">
+<meta property="article:modified_time" content="2020-05-20T06:08:55.488Z">
 <meta property="article:author" content="Jiutai">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://wx4.sinaimg.cn/mw690/006f75xWgy1geyvj3hrejj30ph0d3401.jpg">
 
 
 
@@ -116,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2020/05/20/Process-run-time/"/>
 
 
 
 
 
-  <title>第二天</title>
+  <title>Process_run_time | 第二天</title>
   
 
 
@@ -141,8 +146,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -265,9 +269,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -297,9 +301,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/20/Process-run-time/" itemprop="url">Process_run_time</a></h1>
+          <h1 class="post-title" itemprop="name headline">Process_run_time</h1>
         
 
         <div class="post-meta">
@@ -349,9 +351,7 @@
       
 
       
-        
-          
-            <h1 id="Linux-Process-run-time-del-interrupts"><a href="#Linux-Process-run-time-del-interrupts" class="headerlink" title="Linux Process run time (del interrupts)"></a>Linux Process run time (del interrupts)</h1><p>首先, 来看时钟中断, 开启高精度定时系统后, 时钟中断的服务例程指向了 hrtimer_interrupt(), 并且设置为 one-shot() 模式, 之后用高精度定时器模拟时钟中断, 此时,真正的时钟中断服务例程为 tick_sched_timer(), 所以我们首先来先减去程序运行期间的时钟中断的时间.</p>
+        <h1 id="Linux-Process-run-time-del-interrupts"><a href="#Linux-Process-run-time-del-interrupts" class="headerlink" title="Linux Process run time (del interrupts)"></a>Linux Process run time (del interrupts)</h1><p>首先, 来看时钟中断, 开启高精度定时系统后, 时钟中断的服务例程指向了 hrtimer_interrupt(), 并且设置为 one-shot() 模式, 之后用高精度定时器模拟时钟中断, 此时,真正的时钟中断服务例程为 tick_sched_timer(), 所以我们首先来先减去程序运行期间的时钟中断的时间.</p>
 <p>首先是测试程序:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">#include &lt;stdio.h&gt;</span><br><span class="line">#include &lt;fcntl.h&gt;</span><br><span class="line">#include &lt;sys&#x2F;time.h&gt;</span><br><span class="line"></span><br><span class="line">#define BUF_SIZE 1024</span><br><span class="line"></span><br><span class="line">int main(int argc, char *argv[])</span><br><span class="line">&#123;</span><br><span class="line">    char buf[BUF_SIZE];</span><br><span class="line">    ssize_t numRead;</span><br><span class="line">    int fd &#x3D; open(&quot;.&#x2F;hello&quot;, O_RDWR);</span><br><span class="line">    if(fd &lt; 0)&#123;</span><br><span class="line">        printf(&quot;open error\n&quot;);</span><br><span class="line">        return fd;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    struct timeval start,end;</span><br><span class="line">    gettimeofday(&amp;start, NULL);</span><br><span class="line"></span><br><span class="line">    while((numRead &#x3D; read(fd, buf, BUF_SIZE)) &gt; 0);</span><br><span class="line"></span><br><span class="line">    gettimeofday(&amp;end, NULL);</span><br><span class="line"></span><br><span class="line">    printf(&quot;start:%ld.%ld\n&quot;,start.tv_sec, start.tv_usec);</span><br><span class="line">    printf(&quot;end:%ld.%ld\n&quot;,end.tv_sec, end.tv_usec);</span><br><span class="line"></span><br><span class="line">    return 0;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -365,8 +365,6 @@
 <p>接下来是调度时间<br><img src="https://wx4.sinaimg.cn/mw690/006f75xWgy1geyvj3hrejj30ph0d3401.jpg" alt=""><br>可以在 __schedule() 函数里进行判断,记录每次调度的发生时间,并将每次调度走和调度回来的时间减去</p>
 <p>最后是其他中断的时间<br><img src="https://wx1.sinaimg.cn/mw690/006f75xWgy1geyvn5joklj30qk0hkdi3.jpg" alt=""><br>在处理中断这里进行记录时间<br>以上 大致这些,试试情况如何</p>
 
-          
-        
       
     </div>
     
@@ -383,137 +381,28 @@
       
 
       
-
-      
-
       
       
-        <div class="post-eof"></div>
+
       
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/19/Qadrong/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="https://wx3.sinaimg.cn/mw690/006f75xWly1gexuxfj93yj30hs0np0wk.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2020/05/19/Qadrong/" itemprop="url">致猪蓉</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2020-05-19T14:23:40+08:00">
-                2020-05-19
-              </time>
+              <a href="/2020/05/19/Qadrong/" rel="next" title="致猪蓉">
+                <i class="fa fa-chevron-left"></i> 致猪蓉
+              </a>
             
+          </div>
 
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
             
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p><img src="https://wx2.sinaimg.cn/mw690/006f75xWly1gey3kjxw4qj30u00miwm5.jpg" alt=""></p>
-<p>在每个夜晚想你，<br>自己一个人的时候，<br>你更是成为了我思想的主角，<br>这样的你，<br>让我羡慕~</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2020/05/19/Qadrong/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </div>
@@ -523,10 +412,11 @@
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -534,6 +424,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -554,8 +448,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -617,6 +520,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Linux-Process-run-time-del-interrupts"><span class="nav-number">1.</span> <span class="nav-text">Linux Process run time (del interrupts)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -748,6 +667,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
