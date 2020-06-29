@@ -22,30 +22,43 @@
     var CONFIG = {"hostname":"yoursite.com","root":"/","scheme":"Mist","version":"7.8.0","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12,"onmobile":false,"background":"transparent"},"copycode":{"enable":true,"show_result":true,"style":"default"},"back2top":{"enable":true,"sidebar":false,"scrollpercent":true},"bookmark":{"enable":true,"color":"#222","save":"auto"},"fancybox":false,"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"algolia":{"hits":{"per_page":10},"labels":{"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}},"localsearch":{"enable":false,"trigger":"auto","top_n_per_article":1,"unescape":false,"preload":false},"motion":{"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}}};
   </script>
 
-  <meta name="description" content="Find Faith">
-<meta property="og:type" content="website">
-<meta property="og:title" content="第二天">
-<meta property="og:url" content="http://yoursite.com/index.html">
+  <meta name="description" content="练习springboot security1、简单的simple security实例首先创建几个静态页面首页 index.html, 这里的跳转一开始是注释的部分，等到controller写好，就是下面的样子，也就是直接是斜杠加请求来替换掉直接指向目标页面，我这里每个页面都加上了thymeleaf的头，这样跳转后的页面不会丢失样式，但是我还是不理解模板引擎到底是用来做什么的，为什么它可以让我的样">
+<meta property="og:type" content="article">
+<meta property="og:title" content="SpringBootSecurity">
+<meta property="og:url" content="http://yoursite.com/2020/06/25/SpringBootSecurity/index.html">
 <meta property="og:site_name" content="第二天">
-<meta property="og:description" content="Find Faith">
+<meta property="og:description" content="练习springboot security1、简单的simple security实例首先创建几个静态页面首页 index.html, 这里的跳转一开始是注释的部分，等到controller写好，就是下面的样子，也就是直接是斜杠加请求来替换掉直接指向目标页面，我这里每个页面都加上了thymeleaf的头，这样跳转后的页面不会丢失样式，但是我还是不理解模板引擎到底是用来做什么的，为什么它可以让我的样">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200625144821.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200625153227.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/v2-5cea1765ee341da6ab66ea9668f51a3c_r.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/v2-3523a7b5e03e6af6ce75477e6d0631fa_r.jpg">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626134045.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626134054.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626144140.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626144901.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626160456.png">
+<meta property="og:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200626161346.png">
+<meta property="article:published_time" content="2020-06-25T06:36:43.000Z">
+<meta property="article:modified_time" content="2020-06-28T13:53:29.289Z">
 <meta property="article:author" content="Jiutai">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://yoursite.com/2020/06/25/SpringBootSecurity/SpringBootSecurity/QQ%E6%88%AA%E5%9B%BE20200625144821.png">
 
-<link rel="canonical" href="http://yoursite.com/">
+<link rel="canonical" href="http://yoursite.com/2020/06/25/SpringBootSecurity/">
 
 
 <script id="page-configurations">
   // https://hexo.io/docs/variables.html
   CONFIG.page = {
     sidebar: "",
-    isHome : true,
-    isPost : false,
+    isHome : false,
+    isPost : true,
     lang   : 'zh-CN'
   };
 </script>
 
-  <title>第二天</title>
+  <title>SpringBootSecurity | 第二天</title>
   
 
 
@@ -172,9 +185,10 @@
         <div class="content-wrap">
           
 
-          <div class="content index posts-expand">
+          <div class="content post posts-expand">
             
-      
+
+    
   
   
   <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
@@ -190,10 +204,9 @@
       <meta itemprop="name" content="第二天">
     </span>
       <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/25/SpringBootSecurity/" class="post-title-link" itemprop="url">SpringBootSecurity</a>
-        </h2>
+        <h1 class="post-title" itemprop="name headline">
+          SpringBootSecurity
+        </h1>
 
         <div class="post-meta">
             <span class="post-meta-item">
@@ -223,7 +236,7 @@
     <div class="post-body" itemprop="articleBody">
 
       
-          <h1 id="练习springboot-security"><a href="#练习springboot-security" class="headerlink" title="练习springboot security"></a>练习springboot security</h1><h2 id="1、简单的simple-security实例"><a href="#1、简单的simple-security实例" class="headerlink" title="1、简单的simple security实例"></a>1、简单的simple security实例</h2><h3 id="首先创建几个静态页面"><a href="#首先创建几个静态页面" class="headerlink" title="首先创建几个静态页面"></a>首先创建几个静态页面</h3><p>首页 index.html, 这里的跳转一开始是注释的部分，等到controller写好，就是下面的样子，也就是直接是斜杠加请求来替换掉直接指向目标页面，我这里每个页面都加上了thymeleaf的头，这样跳转后的页面不会丢失样式，但是我还是不理解模板引擎到底是用来做什么的，为什么它可以让我的样式不丢失</p>
+        <h1 id="练习springboot-security"><a href="#练习springboot-security" class="headerlink" title="练习springboot security"></a>练习springboot security</h1><h2 id="1、简单的simple-security实例"><a href="#1、简单的simple-security实例" class="headerlink" title="1、简单的simple security实例"></a>1、简单的simple security实例</h2><h3 id="首先创建几个静态页面"><a href="#首先创建几个静态页面" class="headerlink" title="首先创建几个静态页面"></a>首先创建几个静态页面</h3><p>首页 index.html, 这里的跳转一开始是注释的部分，等到controller写好，就是下面的样子，也就是直接是斜杠加请求来替换掉直接指向目标页面，我这里每个页面都加上了thymeleaf的头，这样跳转后的页面不会丢失样式，但是我还是不理解模板引擎到底是用来做什么的，为什么它可以让我的样式不丢失</p>
 <figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span> <span class="attr">xmlns:th</span>=<span class="string">"http://www.thymeleaf.org"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"/css/secpraindex.css"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/secpraindex.css&#125;"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span> <span class="attr">class</span>=<span class="string">"bodycss"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"left"</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h1</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">h2</span> <span class="attr">align</span>=<span class="string">"center"</span>&gt;</span>欢迎<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"right"</span>&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--            &lt;div class="tag"&gt;&lt;a href="index.html"&gt;首页&lt;/a&gt; &lt;/div&gt;&lt;br&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--            &lt;div class="tag"&gt;&lt;a href="user/admin.html"&gt;用户&lt;/a&gt;&lt;/div&gt;&lt;br&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--            &lt;div class="tag"&gt;&lt;a href="admin/admin.html"&gt;管理员&lt;/a&gt;&lt;/div&gt;&lt;br&gt;--&gt;</span></span><br><span class="line">        <span class="comment">&lt;!--            &lt;div class="tag"&gt;&lt;a href="login.html"&gt;登录&lt;/a&gt;&lt;/div&gt;&lt;br&gt;--&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>  <span class="attr">class</span>=<span class="string">"alink"</span> <span class="attr">href</span>=<span class="string">"/index"</span>&gt;</span>首页<span class="tag">&lt;/<span class="name">a</span>&gt;</span> <span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>  <span class="attr">class</span>=<span class="string">"alink"</span> <span class="attr">href</span>=<span class="string">"/user"</span>&gt;</span>用户<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>  <span class="attr">class</span>=<span class="string">"alink"</span> <span class="attr">href</span>=<span class="string">"/admin"</span>&gt;</span>管理员<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"tag"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span>  <span class="attr">class</span>=<span class="string">"alink"</span> <span class="attr">href</span>=<span class="string">"/login"</span>&gt;</span>登录<span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
 
 <p>登录页面 login.html, 这里面有个触发条件显示用户名密码错误的文字提示，这个</p>
@@ -373,839 +386,31 @@
 <p>流程就是这么个样子，但是我的实验失败了</p>
 <p>web.ignore那个加了之后验证流程就废掉了，不知道是哪里 的代码出了问题</p>
 <h2 id="5、方法授权"><a href="#5、方法授权" class="headerlink" title="5、方法授权"></a>5、方法授权</h2>
-      
     </div>
 
     
     
     
+
       <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/23/OurHome/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/23/OurHome/" class="post-title-link" itemprop="url">OurHome</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-23 14:31:08" itemprop="dateCreated datePublished" datetime="2020-06-23T14:31:08+08:00">2020-06-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-24 22:31:46" itemprop="dateModified" datetime="2020-06-24T22:31:46+08:00">2020-06-24</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="OurHome"><a href="#OurHome" class="headerlink" title=" OurHome "></a><table><tr><td bgcolor = lightblue> OurHome </td></tr></table></h1><h2 id="首先是springboot初始配置"><a href="#首先是springboot初始配置" class="headerlink" title=" 首先是springboot初始配置"></a><div class="note primary"><p> 首先是springboot初始配置</p></div></h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">spring:</span><br><span class="line">  datasource:</span><br><span class="line">    driver-class-name: com.mysql.cj.jdbc.Driver</span><br><span class="line">    url: jdbc:mysql:<span class="comment">///ourhome?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">    username: root</span><br><span class="line">    password: <span class="number">123456</span></span><br></pre></td></tr></table></figure>
-
-<h2 id="前端登录页面"><a href="#前端登录页面" class="headerlink" title="前端登录页面"></a>前端登录页面</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">html</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"en"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">head</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"UTF-8"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">meta</span> <span class="attr">name</span>=<span class="string">"viewport"</span> <span class="attr">content</span>=<span class="string">"width=device-width, initial-scale=1.0"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">title</span>&gt;</span>Document<span class="tag">&lt;/<span class="name">title</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">head</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">body</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"https://cdn.jsdelivr.net/npm/vue/dist/vue.js"</span>&gt;</span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span> <span class="attr">id</span>=<span class="string">"div"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"login-wrapper"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"header"</span>&gt;</span>Login<span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"form-wrapper"</span> <span class="attr">action</span>=<span class="string">"/user/login"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">placeholder</span>=<span class="string">"username"</span> <span class="attr">class</span>=<span class="string">"input-item"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"password"</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">placeholder</span>=<span class="string">"password"</span> <span class="attr">class</span>=<span class="string">"input-item"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">button</span> <span class="attr">class</span>=<span class="string">"btn"</span> <span class="attr">type</span>=<span class="string">"submit"</span> &gt;</span>Login<span class="tag">&lt;/<span class="name">button</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"msg"</span>&gt;</span></span><br><span class="line">            Don't have account? <span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#"</span>&gt;</span>Sign up<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">script</span>&gt;</span></span><br><span class="line"><span class="javascript">    <span class="keyword">let</span> div = <span class="keyword">new</span> Vue(&#123;</span></span><br><span class="line"><span class="actionscript">        el:<span class="string">"#div"</span>,</span></span><br><span class="line">        data:&#123;</span><br><span class="line"></span><br><span class="line">        &#125;,</span><br><span class="line">        methods:&#123;</span><br><span class="line"><span class="actionscript">            login:<span class="function"><span class="keyword">function</span> <span class="params">()</span> </span>&#123;</span></span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;)</span><br><span class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">body</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<h3 id="登录页面的CSS样式"><a href="#登录页面的CSS样式" class="headerlink" title="登录页面的CSS样式"></a>登录页面的CSS样式</h3><figure class="highlight css"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line">* &#123;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">margin</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">font-family</span>: Monospaced;</span><br><span class="line">    <span class="attribute">letter-spacing</span>: .<span class="number">05em</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">html</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-tag">body</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.container</span> &#123;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right, #fbc2eb, #a6c1ee);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> &#123;</span><br><span class="line">    <span class="attribute">background-color</span>: <span class="number">#ffffff</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">250px</span>;</span><br><span class="line">    <span class="attribute">height</span>: <span class="number">500px</span>;</span><br><span class="line">    <span class="attribute">border-radius</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">0</span> <span class="number">50px</span>;</span><br><span class="line">    <span class="attribute">position</span>: relative;</span><br><span class="line">    <span class="attribute">left</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">top</span>: <span class="number">50%</span>;</span><br><span class="line">    <span class="attribute">transform</span>: <span class="built_in">translate</span>(-<span class="number">50%</span>, -<span class="number">50%</span>);</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.header</span> &#123;</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">30px</span>;</span><br><span class="line">    <span class="attribute">font-weight</span>: bold;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">200px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.form-wrapper</span> <span class="selector-class">.input-item</span>&#123;</span><br><span class="line">    <span class="attribute">display</span>: block;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">margin-bottom</span>: <span class="number">20px</span>;</span><br><span class="line">    <span class="attribute">border</span>: <span class="number">0</span>;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">3px</span>;</span><br><span class="line">    <span class="attribute">border-bottom</span>: <span class="number">2px</span> solid <span class="built_in">rgba</span>(<span class="number">57</span>, <span class="number">56</span>, <span class="number">56</span>, <span class="number">0.73</span>);</span><br><span class="line">    <span class="attribute">font-size</span>: <span class="number">16px</span>;</span><br><span class="line">    <span class="attribute">outline</span>: none;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.form-wrapper</span> <span class="selector-class">.input-item</span><span class="selector-pseudo">::placeholder</span> &#123;</span><br><span class="line">    <span class="attribute">text-transform</span>: uppercase;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.form-wrapper</span> <span class="selector-class">.btn</span> &#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">padding</span>: <span class="number">6px</span>;</span><br><span class="line">    <span class="attribute">width</span>: <span class="number">100%</span>;</span><br><span class="line">    <span class="attribute">background-image</span>: <span class="built_in">linear-gradient</span>(to right, #a6c1ee, #fbc2eb);</span><br><span class="line">    <span class="attribute">color</span>: aliceblue;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.msg</span>&#123;</span><br><span class="line">    <span class="attribute">text-align</span>: center;</span><br><span class="line">    <span class="attribute">line-height</span>: <span class="number">80px</span>;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="selector-class">.login-wrapper</span> <span class="selector-class">.msg</span> <span class="selector-tag">a</span>&#123;</span><br><span class="line">    <span class="attribute">text-decoration-line</span>: none;</span><br><span class="line">    <span class="attribute">color</span>: <span class="number">#a6c1ee</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>由于我这里把静态资源放入templates目录下，所以配置里加上静态资源地址</p>
-<p><img src="OurHome/QQ%E6%88%AA%E5%9B%BE20200623145225.png" alt=""></p>
-<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">server:</span></span><br><span class="line">  <span class="attr">port:</span> <span class="number">8080</span></span><br><span class="line"><span class="attr">spring:</span></span><br><span class="line">  <span class="attr">resources:</span></span><br><span class="line">    <span class="attr">static-locations:</span> <span class="string">classpath:/templates</span></span><br><span class="line"></span><br><span class="line">  <span class="attr">datasource:</span></span><br><span class="line">    <span class="attr">driver-class-name:</span> <span class="string">com.mysql.cj.jdbc.Driver</span></span><br><span class="line">    <span class="attr">url:</span> <span class="string">jdbc:mysql:///zz?useUnicode=true&amp;characterEncoding=UTF-8&amp;serverTimezone=Asia/Shanghai</span></span><br><span class="line">    <span class="attr">username:</span> <span class="string">root</span></span><br><span class="line">    <span class="attr">password:</span> <span class="number">123456</span></span><br></pre></td></tr></table></figure>
-
-<p>拷贝index.html 为test.html 并把login换为Main page作为登录后的测试页面，先看看能不能跳过去</p>
-<h2 id="编写controller-UserController"><a href="#编写controller-UserController" class="headerlink" title="编写controller.UserController"></a>编写controller.UserController</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"test"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>运行项目打开8080端口</p>
-<p><img src="OurHome/QQ%E6%88%AA%E5%9B%BE20200623150313.png" alt=""></p>
-<p>点击登录跳转后发现格式乱了，如下：</p>
-<p><img src="OurHome%5CQQ%E6%88%AA%E5%9B%BE20200623150323.png" alt=""></p>
-<p>可以使用重定向解决</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Controller</span></span><br><span class="line"><span class="meta">@RequestMapping</span>(<span class="string">"/user"</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserController</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/test.html"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p><img src="OurHome%5CQQ%E6%88%AA%E5%9B%BE20200623150701.png" alt=""></p>
-<p>但是这么做会导致没有登录的用户，也可以直接在浏览器输入后缀test.html直接进来，所以需要加上登录拦截，这个先放一放，先连上数据库走通一遍</p>
-<p>首先数据库里有个表user有三个字段</p>
-<p><img src="OurHome%5CQQ%E6%88%AA%E5%9B%BE20200623150851.png" alt=""></p>
-<p>所以先在项目里创建对应的实体类 new class  bean.User</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ls.bean;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Data;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Data</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">User</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="keyword">private</span> Integer id;</span><br><span class="line">    <span class="keyword">private</span> String username;</span><br><span class="line">    <span class="keyword">private</span> String password;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里穿插一下，可以先设置一组用户名密码进行测试</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user)</span></span>&#123;</span><br><span class="line">    <span class="keyword">if</span> (<span class="string">"qq"</span>.equals(user.getUsername()) &amp;&amp; <span class="string">"q"</span>.equals(user.getPassword())) &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"redirect:/test.html"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="keyword">else</span> &#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>再次运行发现密码正确可以跳过去，样式也不乱，但是登录错误返回index页面时发现样式又乱了，可以通过模板引擎解决</p>
-<h2 id="引入thymeleaf解决样式错乱问题"><a href="#引入thymeleaf解决样式错乱问题" class="headerlink" title="引入thymeleaf解决样式错乱问题"></a>引入thymeleaf解决样式错乱问题</h2><p>在index.html 的html标签里加上 xmlns:th=”<a href="http://www.thymeleaf.org&quot;" target="_blank" rel="noopener">http://www.thymeleaf.org&quot;</a> </p>
-<p>然后在其引入css样式的标签里加上 th:href=”@{/css/style.css}” </p>
-<p>注意在th加上的样式开头要加上/ </p>
-<p>修改后</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> <span class="attr">th:href</span>=<span class="string">"@&#123;/css/style.css&#125;"</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>ok，现在用户名输入正确或者错误都能跳转到我们想到的页面</p>
-<h2 id="连接数据库"><a href="#连接数据库" class="headerlink" title="连接数据库"></a>连接数据库</h2><h3 id="这里的业务逻辑分为service层-mapper层"><a href="#这里的业务逻辑分为service层-mapper层" class="headerlink" title="这里的业务逻辑分为service层 mapper层"></a>这里的业务逻辑分为service层 mapper层</h3><p>首先来创建service层 按照规范来写先创建一个 service.UserService 的interface</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ls.service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ls.bean.User;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这个接口先放这里不管它，接着来写mapper层 mapper.UserMapper 一样是个interface</p>
-<p>首先引入mabatis的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ls.mapper;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ls.bean.User;</span><br><span class="line"><span class="keyword">import</span> org.apache.ibatis.annotations.Mapper;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Mapper</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">UserMapper</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function">User <span class="title">login</span><span class="params">(User user)</span></span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>接着写mapper对应的xml文件 UserMapper.xml</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8" ?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE <span class="meta-keyword">mapper</span> <span class="meta-keyword">PUBLIC</span> <span class="meta-string">"-//mybatis.org//DTD Mapper 3.0//EN"</span></span></span><br><span class="line"><span class="meta">        <span class="meta-string">"http://mybatis.org/dtd/mybatis-3-mapper.dtd"</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">mapper</span> <span class="attr">namespace</span>=<span class="string">"com.ls.mapper.UserMapper"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">select</span> <span class="attr">id</span>=<span class="string">"login"</span> <span class="attr">resultType</span>=<span class="string">"com.ls.bean.User"</span>&gt;</span></span><br><span class="line">        select * from user where username=#&#123;username&#125; and password=#&#123;password&#125;</span><br><span class="line">    <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">mapper</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>紧接着在pom.xml里build标签里添加</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;resources&gt;</span><br><span class="line">    &lt;resource&gt;</span><br><span class="line">        &lt;directory&gt;src&#x2F;main&#x2F;java&lt;&#x2F;directory&gt;</span><br><span class="line">        &lt;includes&gt;</span><br><span class="line">            &lt;include&gt;**&#x2F;*.xml&lt;&#x2F;include&gt;</span><br><span class="line">        &lt;&#x2F;includes&gt;</span><br><span class="line">    &lt;&#x2F;resource&gt;</span><br><span class="line">    &lt;resource&gt;</span><br><span class="line">        &lt;directory&gt;src&#x2F;main&#x2F;resources&lt;&#x2F;directory&gt;</span><br><span class="line">    &lt;&#x2F;resource&gt;</span><br><span class="line">&lt;&#x2F;resources&gt;</span><br></pre></td></tr></table></figure>
-
-<p>这里贴一下到这里的依赖</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></span></span><br><span class="line"><span class="tag">         <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">parent</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-parent<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3.0.RELEASE<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">relativePath</span>/&gt;</span> <span class="comment">&lt;!-- lookup parent from repository --&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">parent</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.ls<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ls<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">version</span>&gt;</span>0.0.1-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">name</span>&gt;</span>ls<span class="tag">&lt;/<span class="name">name</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">description</span>&gt;</span>Demo project for Spring Boot<span class="tag">&lt;/<span class="name">description</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">properties</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">java.version</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">java.version</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">properties</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-thymeleaf<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-web<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-devtools<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>mysql<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mysql-connector-java<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>runtime<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.projectlombok<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>lombok<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">optional</span>&gt;</span>true<span class="tag">&lt;/<span class="name">optional</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-starter-test<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">exclusions</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">exclusion</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.junit.vintage<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit-vintage-engine<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">exclusion</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">exclusions</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.baomidou<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-plus-boot-starter<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.3.2<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.5.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.mybatis<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>mybatis-spring<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.0.4<span class="tag">&lt;/<span class="name">version</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">build</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">resources</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/java<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">includes</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">include</span>&gt;</span>**/*.xml<span class="tag">&lt;/<span class="name">include</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">includes</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">resource</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">directory</span>&gt;</span>src/main/resources<span class="tag">&lt;/<span class="name">directory</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">resource</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">resources</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">plugins</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven.plugins<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>maven-compiler-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">configuration</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">source</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">source</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">target</span>&gt;</span>1.8<span class="tag">&lt;/<span class="name">target</span>&gt;</span></span><br><span class="line">                    <span class="tag">&lt;<span class="name">encoding</span>&gt;</span>UTF-8<span class="tag">&lt;/<span class="name">encoding</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;/<span class="name">configuration</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">plugin</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.springframework.boot<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>spring-boot-maven-plugin<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">plugin</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">plugins</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">build</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-
-
-
-
-<p>现在mapper层ok了，我们去创建一个类去实例化service层，然后调用mapper层的方法  创建类 service.impl.UserServiceImpl</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ls.service.impl;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ls.bean.User;</span><br><span class="line"><span class="keyword">import</span> com.ls.mapper.UserMapper;</span><br><span class="line"><span class="keyword">import</span> com.ls.service.UserService;</span><br><span class="line"><span class="keyword">import</span> org.springframework.stereotype.Service;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.annotation.Resource;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Service</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">UserServiceImpl</span> <span class="keyword">implements</span> <span class="title">UserService</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Resource</span></span><br><span class="line">    <span class="keyword">private</span> UserMapper userMapper;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            User loginUser = userMapper.login(user);</span><br><span class="line">            <span class="keyword">if</span> (loginUser == <span class="keyword">null</span>) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"redirect:/test.html"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>到这里已经和数据库联通了，输入错误的用户名和密码会重复跳至登录页面，输入正确的数据库里面的账号则会跳到main page</p>
-<h2 id="添加登录提示消息"><a href="#添加登录提示消息" class="headerlink" title="添加登录提示消息"></a>添加登录提示消息</h2><h3 id="添加用户名或密码错误消息"><a href="#添加用户名或密码错误消息" class="headerlink" title="添加用户名或密码错误消息"></a>添加用户名或密码错误消息</h3><p>这个只需要在登录逻辑里加上一个map</p>
-<p>首先修改controller层</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@PostMapping</span>(<span class="string">"/login"</span>)</span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user, Map&lt;String, Object&gt; map)</span></span>&#123;</span><br><span class="line">    <span class="keyword">return</span> userService.login(user, map);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>依次将这条调用路线上的参数加上这个map （有点蛋疼）到service层为止，mapper层不用修改</p>
-<p>将用户服务层的实现类的登录函数修改如下（加上一句map的put）</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user, Map&lt;String, Object&gt; map)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            User loginUser = userMapper.login(user);</span><br><span class="line">            <span class="keyword">if</span> (loginUser == <span class="keyword">null</span>) &#123;</span><br><span class="line">                map.put(<span class="string">"msg"</span>, <span class="string">"用户名或密码错误"</span>);</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">            &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="string">"redirect:/test.html"</span>;</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后修改登录页面，将msg按需显示出来</p>
-<p>在login的div下 ， form的div上添加</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">p</span> <span class="attr">style</span>=<span class="string">"color: mediumvioletred"</span> <span class="attr">th:text</span>=<span class="string">"$&#123;msg&#125;"</span> <span class="attr">th:if</span>=<span class="string">"$&#123;not #strings.isEmpty(msg)&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">p</span>&gt;</span></span><br><span class="line">       <span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br></pre></td></tr></table></figure>
-
-<p>效果：</p>
-<p><img src="OurHome%5CQQ%E6%88%AA%E5%9B%BE20200623160510.png" alt=""></p>
-<h2 id="拦截器"><a href="#拦截器" class="headerlink" title="拦截器"></a>拦截器</h2><p>由于进行了重定向，所以要对某些请求（比如直接输地址但没有提交正确的用户名密码）进行拦截</p>
-<p>创建interceptor.LoginHandlerInterceptor类</p>
-<p>首先在正常登录逻辑里再加一个参数HttpSession session，继续这些蛋疼的操作</p>
-<p>然后在登录服务里加上</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">session.setAttribute(<span class="string">"loginUser"</span>, user.getUsername());</span><br></pre></td></tr></table></figure>
-
-<p>也即变成：</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Override</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> String <span class="title">login</span><span class="params">(User user, Map&lt;String, Object&gt; map, HttpSession session)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">try</span> &#123;</span><br><span class="line">        User loginUser = userMapper.login(user);</span><br><span class="line">        <span class="keyword">if</span> (loginUser == <span class="keyword">null</span>) &#123;</span><br><span class="line">            map.put(<span class="string">"msg"</span>, <span class="string">"用户名或密码错误"</span>);</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">        &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">            session.setAttribute(<span class="string">"loginUser"</span>, user.getUsername());</span><br><span class="line">            <span class="keyword">return</span> <span class="string">"redirect:/test.html"</span>;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">        e.printStackTrace();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">return</span> <span class="string">"index"</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>然后编写拦截器</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">LoginHandlerInterceptor</span> <span class="keyword">implements</span> <span class="title">HandlerInterceptor</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">preHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line">        Object user = request.getSession().getAttribute(<span class="string">"loginUser"</span>);</span><br><span class="line">        <span class="keyword">if</span>(user == <span class="keyword">null</span>) &#123;</span><br><span class="line">            request.setAttribute(<span class="string">"msg"</span>, <span class="string">"没有权限请先登录"</span>);</span><br><span class="line">            request.getRequestDispatcher(<span class="string">"/index.html"</span>).forward(request, response);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">postHandle</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">afterCompletion</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex)</span> <span class="keyword">throws</span> Exception </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>之后在视图配置里使用这个拦截器</p>
-<p>创建 config.MyMvcConfig 类</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> com.ls.config;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> com.ls.interceptor.LoginHandlerInterceptor;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</span><br><span class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.InterceptorRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.ViewControllerRegistry;</span><br><span class="line"><span class="keyword">import</span> org.springframework.web.servlet.config.annotation.WebMvcConfigurer;</span><br><span class="line"></span><br><span class="line"><span class="meta">@Configuration</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyMvcConfig</span> <span class="keyword">implements</span> <span class="title">WebMvcConfigurer</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="meta">@Bean</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> WebMvcConfigurer <span class="title">webMvcConfigurer</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> WebMvcConfigurer() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addViewControllers</span><span class="params">(ViewControllerRegistry registry)</span> </span>&#123;</span><br><span class="line">                registry.addViewController(<span class="string">"/index.html"</span>).setViewName(<span class="string">"index"</span>);</span><br><span class="line">                registry.addViewController(<span class="string">"/"</span>).setViewName(<span class="string">"index"</span>);</span><br><span class="line">                registry.addViewController(<span class="string">"/main.html"</span>).setViewName(<span class="string">"test"</span>);</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addInterceptors</span><span class="params">(InterceptorRegistry registry)</span> </span>&#123;</span><br><span class="line">                registry.addInterceptor(<span class="keyword">new</span> LoginHandlerInterceptor()).addPathPatterns(<span class="string">"/**"</span>)</span><br><span class="line">                        .excludePathPatterns(<span class="string">"/"</span>, <span class="string">"/index.html"</span>, <span class="string">"/user/login"</span>, <span class="string">"/css/**"</span>, <span class="string">"/index"</span>);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<p>这里顺便添加了视图映射，注意将登录服务里原本的登录成功的返回改为</p>
-<p>“redirect:/main.html” 反正这里将main.html 映射为了test页面</p>
-<p>这里遗留了一个问题，就是虽然现在限制了对main.html的访问，使得必须输入账号，但是若是直接访问test.html呢，我这里是报错了</p>
-<p>模板引擎到底是什么 thymeleaf到底有什么作用</p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/18/SB-Pro1/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/18/SB-Pro1/" class="post-title-link" itemprop="url">SB_Pro1</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-18 20:58:40" itemprop="dateCreated datePublished" datetime="2020-06-18T20:58:40+08:00">2020-06-18</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-23 14:22:26" itemprop="dateModified" datetime="2020-06-23T14:22:26+08:00">2020-06-23</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<p>shift+enter 跳到下一行（新建）<br>ctrl+D      复制当前行到下一行<br>home        到行首<br>end         到行尾<br>ctrl+j      到下一行（自己加的）<br>ctrl+k      到上一行（同上）<br>ctrl+y      删除当前行<br>ctrl alt t  surroundwith</p>
-<h3 id="记录自己springboot工程的开发过程"><a href="#记录自己springboot工程的开发过程" class="headerlink" title="记录自己springboot工程的开发过程"></a><table><tr><td bgcolor=lightblue>记录自己springboot工程的开发过程</td></tr></table></h3>
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/10/Java/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/10/Java/" class="post-title-link" itemprop="url">Java</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-10 08:26:18" itemprop="dateCreated datePublished" datetime="2020-06-10T08:26:18+08:00">2020-06-10</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-17 14:32:46" itemprop="dateModified" datetime="2020-06-17T14:32:46+08:00">2020-06-17</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<div class="note info">
-            <p>地址传递问题 <br></p>
-          </div>
-
-<table><tr><td bgcolor=lightblue>
-冒泡排序为例的元素交换过程,如果只是简单swap(ns[j], ns[j+1]) <br>
-也即简单传递两个元素的值进行交换是没有意义的，真正的交换必须加上地址，老生常谈
-</td></tr></table>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">package com.hello.demo;</span><br><span class="line"></span><br><span class="line">import java.util.Arrays;</span><br><span class="line">import java.util.Scanner;</span><br><span class="line"></span><br><span class="line">import static com.sun.tools.javac.jvm.ByteCodes.swap;</span><br><span class="line">import static java.lang.Math.sqrt;</span><br><span class="line"></span><br><span class="line">public class HelloWorld &#123;</span><br><span class="line">    private static void swap(int[] n, int i, int j) &#123;</span><br><span class="line">        int temp &#x3D; n[i];</span><br><span class="line">        n[i] &#x3D; n[j];</span><br><span class="line">        n[j] &#x3D; temp;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    public static void main(String[] args)&#123;</span><br><span class="line">        System.out.println(&quot;Hello World!&quot;);</span><br><span class="line">        int[] ns &#x3D; &#123;28, 12, 89, 73, 65, 18, 96, 50, 8, 36&#125;;</span><br><span class="line">        System.out.println(&quot;Front :&quot; + Arrays.toString(ns));</span><br><span class="line">        for(int i &#x3D; 0; i &lt; ns.length - 1; i++)&#123;</span><br><span class="line">            for(int j &#x3D; 0; j &lt; ns.length - 1 - i; j++)&#123;</span><br><span class="line">                if(ns[j] &gt; ns[j+1]) &#123;</span><br><span class="line">                    swap(ns, j, j+1);</span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">        System.out.println(&quot;Behind :&quot; + Arrays.toString(ns));</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<div class="note info">
-            <h1 id="Java-接口-Serializable"><a href="#Java-接口-Serializable" class="headerlink" title="Java 接口 Serializable"></a>Java 接口 Serializable</h1>
-          </div>
-
-<table><tr><td bgcolor=lightblue>
-该接口的实现为空，译为序列化，持久化，实现该接口后的类在往磁盘写入的时候可以序列化写入，
-不实现接口采用流写入会报错，而且似乎写入的是乱码 
-</td></tr></table>
-<table><tr><td bgcolor=lightblue>
-代码示例
-</td></tr></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">public class SerialPra implements Serializable&#123;</span><br><span class="line">    private static final long serialVersionUID &#x3D; 1L;</span><br><span class="line"></span><br><span class="line">    private String userId;</span><br><span class="line">    private String userName;</span><br><span class="line"></span><br><span class="line">    public SerialPra(String userId, String userName) &#123;</span><br><span class="line">        this.userId &#x3D; userId;</span><br><span class="line">        this.userName &#x3D; userName;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    @Override</span><br><span class="line">    public String toString() &#123;</span><br><span class="line">        return &quot;SerialPra&#123;&quot; +</span><br><span class="line">                &quot;userId&#x3D;&#39;&quot; + userId + &#39;\&#39;&#39; +</span><br><span class="line">                &quot;, userName&#x3D;&#39;&quot; + userName + &#39;\&#39;&#39; +</span><br><span class="line">                &#39;&#125;&#39;;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<table><tr><td bgcolor=lightblue>
-测试
-</td></tr></table>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@Test</span><br><span class="line">    void contextLoads() throws IOException &#123;</span><br><span class="line">        SerialPra se &#x3D; new SerialPra(&quot;1&quot;, &quot;jiutai&quot;);</span><br><span class="line">        ObjectOutputStream objectOutputStream &#x3D; new ObjectOutputStream(new FileOutputStream(&quot;O:\\tmp.txt&quot;));</span><br><span class="line">        objectOutputStream.writeObject(se);</span><br><span class="line">        objectOutputStream.close();</span><br><span class="line"></span><br><span class="line">        ObjectInputStream objectInputStream &#x3D; new ObjectInputStream(new FileInputStream(&quot;O:\\tmp.txt&quot;));</span><br><span class="line">        try &#123;</span><br><span class="line">            Object object &#x3D; objectInputStream.readObject();</span><br><span class="line">            SerialPra ser &#x3D; (SerialPra)object;</span><br><span class="line">            System.out.println(&quot;ser &#x3D; &quot; + ser);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
-<table><tr><td bgcolor=lightblue>
-图例
-1、没有实现接口的类
-2、测试单元
-3、上面的类写入文件后文件的信息
-4、加上实现该接口在反序列化可以拿到原数据
-5、加上实现该接口后写入文件的信息
-</td></tr></table>
-
-<p><img src="../source/_posts/Java/20200617141537.png" alt=""></p>
-<p><img src="20200617141623.png" alt=""></p>
-<p><img src="20200617141709.png" alt=""></p>
-<p><img src="0200617141752.png" alt=""></p>
-<p><img src="0200617141817.png" alt=""></p>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/09/leetcode/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/09/leetcode/" class="post-title-link" itemprop="url">leetcode</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-09 16:17:31" itemprop="dateCreated datePublished" datetime="2020-06-09T16:17:31+08:00">2020-06-09</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-11 19:48:25" itemprop="dateModified" datetime="2020-06-11T19:48:25+08:00">2020-06-11</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-
-<h1 id="forgot"><a href="#forgot" class="headerlink" title="forgot"></a>forgot</h1><div class="note primary">
-            <p>x给定一个数字，我们按照如下规则把它翻译为字符串：<br><br>0 翻译成 “a” ，1 翻译成 “b”，……，11 翻译成 “l”，……，25 翻译成 “z”。<br><br>一个数字可能有多个翻译。请编程实现一个函数，用来计算一个数字有多少种不同的翻译方法。</p>
-          </div>
-
-<div class="note info">
-            <p>输入: 12258 <br><br>输出: 5 <br><br>解释: 12258有5种不同的翻译，分别是”bccfi”, “bwfi”, “bczi”, “mcfi”和”mzi”</p>
-          </div>
-
-<div class="note success">
-            <p>动态规划，爬台阶一类 <br><br>假设限制条件放宽一下，0~99都有对应的字符的话，<br><br>假设一个 n 位数字，其倒数第二位不为0，<br><br>则其翻译方法 dp[n] = dp[n-1] + dp[n-2]<br><br>而题设限制条件使得上式的 dp[n-2] 有的时候为0罢了</p>
-          </div>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">private static int translate(int n) &#123;</span><br><span class="line">    String str &#x3D; String.valueOf(n);</span><br><span class="line">    var dp &#x3D; new int[str.length() + 1];</span><br><span class="line">    dp[0] &#x3D; 1;</span><br><span class="line">    dp[1] &#x3D; 1;</span><br><span class="line">    for(int i&#x3D;2; i&lt;&#x3D;str.length(); i++)&#123;</span><br><span class="line">        dp[i] &#x3D; dp[i-1];</span><br><span class="line">        if((str.charAt(i-2) &#x3D;&#x3D; &#39;1&#39;) || ((str.charAt(i-2) &#x3D;&#x3D; &#39;2&#39;) &amp;&amp; (str.charAt(i-1) &lt; &#39;6&#39;))) &#123;</span><br><span class="line">            dp[i] +&#x3D; dp[i-2];</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">    return dp[str.length()];</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="1、两数之和"><a href="#1、两数之和" class="headerlink" title=" 1、两数之和"></a><table><tr><td bgcolor=lightblue> 1、两数之和</td></tr></table></h1><div class="note primary">
-            <p>给定一个整数数组 nums 和一个目标值 target，<br>请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。<br>你可以假设每种输入只会对应一个答案。但是，数组中同一个元素不能使用两遍。</p>
-          </div>
-
-<div class="note info">
-            <p>给定 nums = [2, 7, 11, 15], target = 9<br>因为 nums[0] + nums[1] = 2 + 7 = 9<br>所以返回 [0, 1]</p>
-          </div>
-
-<div class="note success">
-            <p>使用 HashMap，遍历数组，依次将target减去数组元素，<br>若该值已在map中，则输出，<br>否则，将该数组元素入map</p>
-          </div>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">public int[] twoSum(int[] nums, int target)&#123;</span><br><span class="line">    Map&lt;Integer, Interger&gt; map &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">    for(int i &#x3D; 0; i &lt;nums.length; i++)&#123;</span><br><span class="line">        if(map.containsKey(target - nums[i]))</span><br><span class="line">            return new int[]&#123;map.get(target - nums[i]), i&#125;;</span><br><span class="line">        map.put(nums[i], i);</span><br><span class="line">    &#125;</span><br><span class="line">    throw new IllegalArgumentException(&quot;No two sum solutiono&quot;);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<h1 id="3、无重复字符最长字串"><a href="#3、无重复字符最长字串" class="headerlink" title=" 3、无重复字符最长字串"></a><table><tr><td bgcolor=lightblue> 3、无重复字符最长字串</td></tr></table></h1><div class="note primary">
-            <p>给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。</p>
-          </div>
-
-<div class="note info">
-            <p>输入: “pwwkew”<br>输出: 3<br>解释: 因为无重复字符的最长子串是 “wke”，所以其长度为 3。<br>     请注意，你的答案必须是 子串 的长度，”pwke” 是一个子序列，不是子串。</p>
-          </div>
-
-<div class="note success">
-            <p>此题可用滑动窗口法，<br>字符串是不动的，设两个指针去模拟一个滑动窗口，<br>窗口的左侧不动，只要窗口内没有重复字符，右侧一直右移<br>若遇到重复字符，则该字符不能入窗口，也就是右指针暂时不能将其包裹<br>此时移动左指针，左指针右移，再次查看窗口内容与遇到的重复字符，<br>一直移动左指针，知道右指针包裹了之前的那个重复字符也可以满足窗口内容不重复<br>可以使用set或者map</p>
-          </div>
-
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br></pre></td><td class="code"><pre><span class="line">public int lengthoflongestsubstring(String s)&#123;</span><br><span class="line">    Set&lt;Character&gt; set &#x3D; new HashSet&lt;&gt;();</span><br><span class="line">    int ret &#x3D; 0;</span><br><span class="line">    int r &#x3D; -1;</span><br><span class="line">    for(int i &#x3D; 0; i&lt;s.length; i++)&#123;</span><br><span class="line">        if(i !&#x3D; 0)</span><br><span class="line">            set.remove(s.charAt(i-1));</span><br><span class="line">        while(r+1&lt;s.length() &amp;&amp; !set.contains(s.charAt(r+1)))&#123;</span><br><span class="line">            set.add(s.charAt(r+1));</span><br><span class="line">            r++;</span><br><span class="line">        &#125;</span><br><span class="line">        ret &#x3D; Math.max(ret, r-i+1);</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;   &#x2F;&#x2F;set</span><br><span class="line"></span><br><span class="line">public int Lengthoflongestsubstring(String s)&#123;</span><br><span class="line">    Map&lt;Character, Integer&gt; map &#x3D; new HashMap&lt;&gt;();</span><br><span class="line">    int ret &#x3D; 0;</span><br><span class="line">    int r &#x3D; 0;</span><br><span class="line">    for(int i &#x3D; 0; i &lt; s.length(); i++)&#123;</span><br><span class="line">        if(map.containsKey(s.charAt(i)))</span><br><span class="line">            r &#x3D; Math.max(r, map.get(s.charAt(i)) + 1);</span><br><span class="line">        map.put(s.charAt(i), i);</span><br><span class="line">        ret &#x3D; Math.max(ret, i-r+1)</span><br><span class="line">    &#125;</span><br><span class="line">    return ret;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/06/Vim/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/06/Vim/" class="post-title-link" itemprop="url">Vim</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-06 20:20:26" itemprop="dateCreated datePublished" datetime="2020-06-06T20:20:26+08:00">2020-06-06</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-09 15:45:51" itemprop="dateModified" datetime="2020-06-09T15:45:51+08:00">2020-06-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <a id="more"></a>
-<div class="note primary"><p>
-全局删除匹配到的行      :g/pattern/d
-</p></div>
-
-<div class="note primary"><p>
-删除1-10行内匹配到的行      :1,10g/pattern/d
-</p></div>
-
-<div class="note primary"><p>
-删除不包含指定字符的行      :v/pattern/d  (或  :g!/pattern/d)
-</p></div>
-
-<div class="note primary"><p>
-全局替换字符      :%s/pattern/new/g 
-</p></div>
-
-
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/06/04/Ftrace/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/06/04/Ftrace/" class="post-title-link" itemprop="url">Ftrace</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-06-04 20:20:26" itemprop="dateCreated datePublished" datetime="2020-06-04T20:20:26+08:00">2020-06-04</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-09 15:45:37" itemprop="dateModified" datetime="2020-06-09T15:45:37+08:00">2020-06-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          <h1 id="Ftrace的简单使用"><a href="#Ftrace的简单使用" class="headerlink" title="Ftrace的简单使用"></a>Ftrace的简单使用</h1>
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/06/04/Ftrace/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
-    </div>
 
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
 
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/23/Python-Draw/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/23/Python-Draw/" class="post-title-link" itemprop="url">Python-Draw</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-23 15:28:20" itemprop="dateCreated datePublished" datetime="2020-05-23T15:28:20+08:00">2020-05-23</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-06-09 16:16:14" itemprop="dateModified" datetime="2020-06-09T16:16:14+08:00">2020-06-09</time>
-              </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/23/Python-Draw/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
         
-      
+    <div class="post-nav">
+      <div class="post-nav-item">
+    <a href="/2020/06/23/OurHome/" rel="prev" title="OurHome">
+      <i class="fa fa-chevron-left"></i> OurHome
+    </a></div>
+      <div class="post-nav-item"></div>
     </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
       </footer>
+    
   </article>
   
   
   
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/22/Python-question/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/22/Python-question/" class="post-title-link" itemprop="url">Python-question</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-              
-
-              <time title="创建时间：2020-05-22 20:08:06 / 修改时间：20:56:30" itemprop="dateCreated datePublished" datetime="2020-05-22T20:08:06+08:00">2020-05-22</time>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/22/Python-question/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-      
-  
-  
-  <article itemscope itemtype="http://schema.org/Article" class="post-block" lang="zh-CN">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2020/05/21/Interrupt/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="image" content="/images/rong.jpg">
-      <meta itemprop="name" content="Jiutai">
-      <meta itemprop="description" content="Find Faith">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="第二天">
-    </span>
-      <header class="post-header">
-        <h2 class="post-title" itemprop="name headline">
-          
-            <a href="/2020/05/21/Interrupt/" class="post-title-link" itemprop="url">Interrupt</a>
-        </h2>
-
-        <div class="post-meta">
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              <span class="post-meta-item-text">发表于</span>
-
-              <time title="创建时间：2020-05-21 09:46:18" itemprop="dateCreated datePublished" datetime="2020-05-21T09:46:18+08:00">2020-05-21</time>
-            </span>
-              <span class="post-meta-item">
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-calendar-check-o"></i>
-                </span>
-                <span class="post-meta-item-text">更新于</span>
-                <time title="修改时间：2020-05-23 08:34:16" itemprop="dateModified" datetime="2020-05-23T08:34:16+08:00">2020-05-23</time>
-              </span>
-            <span class="post-meta-item">
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Linux-kernel/" itemprop="url" rel="index"><span itemprop="name">Linux kernel</span></a>
-                </span>
-            </span>
-
-          
-
-        </div>
-      </header>
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-          Here's something encrypted, password is required to continue reading.
-          <!--noindex-->
-            <div class="post-button">
-              <a class="btn" href="/2020/05/21/Interrupt/#more" rel="contents">
-                阅读全文 &raquo;
-              </a>
-            </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    
-    
-    
-      <footer class="post-footer">
-        <div class="post-eof"></div>
-      </footer>
-  </article>
-  
-  
-  
-
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right" aria-label="下一页"></i></a>
-  </nav>
 
 
 
@@ -1257,6 +462,7 @@
 
       <!--noindex-->
       <div class="post-toc-wrap sidebar-panel">
+          <div class="post-toc motion-element"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#练习springboot-security"><span class="nav-number">1.</span> <span class="nav-text">练习springboot security</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、简单的simple-security实例"><span class="nav-number">1.1.</span> <span class="nav-text">1、简单的simple security实例</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#首先创建几个静态页面"><span class="nav-number">1.1.1.</span> <span class="nav-text">首先创建几个静态页面</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#然后是controller层"><span class="nav-number">1.1.2.</span> <span class="nav-text">然后是controller层</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#重点配置文件"><span class="nav-number">1.1.3.</span> <span class="nav-text">重点配置文件</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、normal-security-pra"><span class="nav-number">1.2.</span> <span class="nav-text">2、normal security pra</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建component-BackDoorAuthenticationProvider-java"><span class="nav-number">1.2.1.</span> <span class="nav-text">创建component.BackDoorAuthenticationProvider.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#修改SecurityConfiguration-java"><span class="nav-number">1.2.2.</span> <span class="nav-text">修改SecurityConfiguration.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#获得权限名称传入前端页面显示"><span class="nav-number">1.2.3.</span> <span class="nav-text">获得权限名称传入前端页面显示</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#–前两个的总结"><span class="nav-number">1.3.</span> <span class="nav-text">–前两个的总结</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#参与验证的要素"><span class="nav-number">1.3.1.</span> <span class="nav-text">参与验证的要素</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#验证流程"><span class="nav-number">1.3.2.</span> <span class="nav-text">验证流程</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、添加数据库支持"><span class="nav-number">1.4.</span> <span class="nav-text">3、添加数据库支持</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#entity-User-java"><span class="nav-number">1.4.1.</span> <span class="nav-text">entity.User.java</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#mapper-UserMapper-interface"><span class="nav-number">1.4.2.</span> <span class="nav-text">mapper.UserMapper interface</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#service-UserService"><span class="nav-number">1.4.3.</span> <span class="nav-text">service.UserService</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、spring-security鉴权流程"><span class="nav-number">1.5.</span> <span class="nav-text">4、spring security鉴权流程</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#让spring-security代劳"><span class="nav-number">1.5.1.</span> <span class="nav-text">让spring security代劳</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#实现spring-security鉴权流程"><span class="nav-number">1.5.2.</span> <span class="nav-text">实现spring security鉴权流程</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#1、数据库创建resources表"><span class="nav-number">1.5.2.1.</span> <span class="nav-text">1、数据库创建resources表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#2、创建对应的实体类"><span class="nav-number">1.5.2.2.</span> <span class="nav-text">2、创建对应的实体类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#3、鉴权先拿到所需要的权限"><span class="nav-number">1.5.2.3.</span> <span class="nav-text">3、鉴权先拿到所需要的权限</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#4、鉴权决策类"><span class="nav-number">1.5.2.4.</span> <span class="nav-text">4、鉴权决策类</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5、最后把以上加入配置类中"><span class="nav-number">1.5.2.5.</span> <span class="nav-text">5、最后把以上加入配置类中</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、方法授权"><span class="nav-number">1.6.</span> <span class="nav-text">5、方法授权</span></a></li></ol></li></ol></div>
       </div>
       <!--/noindex-->
 
